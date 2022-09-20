@@ -1,5 +1,5 @@
 import axios from "axios"
-const url = "https://jsonplaceholder.typicode.com/users";
+const url = "https://randomuser.me/api/";
 
 const fetchGetUsers = () => {
     axios.get(url)
