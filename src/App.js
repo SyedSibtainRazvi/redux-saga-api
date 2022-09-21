@@ -1,6 +1,6 @@
 import './App.css'
 import { useEffect } from "react";
-import { getUsers } from "./actions/index.js";
+import { getUsers, stopPolling } from "./actions/index.js";
 import { useSelector, useDispatch } from "react-redux";
 
 function App() {
@@ -16,9 +16,10 @@ function App() {
   return (
     <div className="App">
       <h1>Redux-Saga Api Calls</h1>
+      <button onClick={()=> dispatch(stopPolling)}>StopPolling</button>
       {loading && <h2>Loading...</h2>}
       {error && !loading && <h2>{error}</h2>}
-      {users && users.map((user, i) => <h1 key={i}>{user.name}</h1>)}
+      {users && users.map((user, i) => <h2 key={i}>{user.name}</h2>)}
     </div>
   );
 }
