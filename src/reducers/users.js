@@ -12,6 +12,8 @@ const users = (state = initialState, action) => {
             return { ...state, loading: false, users: action.users };
         case "GET_USERS_FAILED":
             return { ...state, loading: false, users: action.message };
+        case "STOP_POLLING":
+            return {}
         default:
             return state
     }
