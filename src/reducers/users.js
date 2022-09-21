@@ -7,14 +7,14 @@ const initialState = {
 const users = (state = initialState, action) => {
     switch (action.type) {
         case "GET_USERS_REQUESTED":
-            return { ...state, loading: true }
+            return { ...state, loading: true };
         case "GET_USERS_SUCCESS":
-            return { ...state, loading: false, users: action.users }
+            return { ...state, loading: false, users: action.users };
         case "GET_USERS_FAILED":
-            return { ...state, loading: false, users: action.message }
+            return { ...state, loading: false, users: action.message };
         default:
             return state
     }
-}
+};
 
 export default users
