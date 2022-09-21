@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery } from "redux-saga/effects";
 import fetchGetUsers from "../requests/fetchUsers";
 
 function* handleGetUsers() {
@@ -11,7 +11,7 @@ function* handleGetUsers() {
 }
 
 function* watcherUserSaga(){
-    yield takeLatest("GET_USERS_REQUESTED", handleGetUsers)
+    yield takeEvery("GET_USERS_REQUESTED", handleGetUsers)
 }
 
 export default watcherUserSaga

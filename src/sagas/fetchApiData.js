@@ -4,7 +4,7 @@ const url = "https://randomuser.me/api/";
 const fetchGetUsers = () => {
     axios.get(url)
         .then(res => {
-            console.log(res.data);
+            console.log(res);
             return res
         })
 };
