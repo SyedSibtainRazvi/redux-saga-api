@@ -7,5 +7,5 @@ export const getUsers = () => {
 export const stopPolling = () => {
     return {
         type: "STOP_POLLING",
-    }
-}
+    };
+};

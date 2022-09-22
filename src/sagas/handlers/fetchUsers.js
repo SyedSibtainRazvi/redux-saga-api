@@ -1,4 +1,4 @@
-import { call, put, take, fork, cancel, takeEvery, cancelled, delay } from "redux-saga/effects";
+import { call, put, take, fork, cancel, cancelled, delay } from "redux-saga/effects";
 import fetchGetUsers from "../requests/fetchApiData";
 
 function* handleGetUsers() {
@@ -20,7 +20,7 @@ function* watcherUserSaga() {
         const handleGetUsersCheck = yield fork(handleGetUsers)
 
         // wait for the user stop action
-        yield take('GET_USERS_FAILED')
+        yield take("STOP_POLLING")
         // user clicked stop. cancel the background task
         // this will cause the forked bgSync task to jump into its finally block
         yield cancel(handleGetUsersCheck)

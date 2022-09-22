@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Redux-Saga Api Calls</h1>
-      <button onClick={()=> dispatch(stopPolling)}>StopPolling</button>
+      <button onClick={()=> dispatch(stopPolling())}>StopPolling</button>
       {loading && <h2>Loading...</h2>}
       {error && !loading && <h2>{error}</h2>}
       {users && users.map((user, i) => <h2 key={i}>{user.name}</h2>)}

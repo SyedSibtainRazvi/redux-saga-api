@@ -2,6 +2,7 @@ const initialState = {
     users: [],
     loading: false,
     error: null,
+    polling: false,
 };
 
 const users = (state = initialState, action) => {
@@ -13,7 +14,7 @@ const users = (state = initialState, action) => {
         case "GET_USERS_FAILED":
             return { ...state, loading: false, users: action.message };
         case "STOP_POLLING":
-            return {}
+            return { ...state, polling: false }
         default:
             return state
     }
