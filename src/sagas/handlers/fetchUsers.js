@@ -1,11 +1,11 @@
 import { call, put, take, fork, cancel, cancelled, delay } from "redux-saga/effects";
-import fetchGetUsers from "../requests/fetchApiData";
+import { fetchGetUsers } from "../requests/fetchApiData";
 
 function* handleGetUsers() {
     while (true)
         try {
             const users = yield call(fetchGetUsers)
-            yield delay(4000)
+            yield delay(2000)
             console.log(users);
             yield put({ type: "GET_USERS_SUCCESS", users: users });
         } finally {
@@ -14,7 +14,7 @@ function* handleGetUsers() {
         }
 }
 
-function* watcherUserSaga() {
+export function* watcherUserSaga() {
     while (yield take('GET_USERS_REQUESTED')) {
         // starts the task in the background
         const handleGetUsersCheck = yield fork(handleGetUsers)
@@ -30,4 +30,4 @@ function* watcherUserSaga() {
 // function* watcherUserSaga() {
 //     yield takeEvery("GET_USERS_REQUESTED", handleGetUsers)
 // }
-export default watcherUserSaga
+// export default watcherUserSaga

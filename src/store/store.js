@@ -1,7 +1,8 @@
 import createSagaMiddleware from "redux-saga";
-import rootSaga from "../sagas/rootSaga";
+// import rootSaga from "../sagas/rootSaga";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "../reducers/index";
+import { watcherUserSaga } from "../sagas/handlers/fetchUsers";
 
 
 
@@ -13,6 +14,6 @@ const store = configureStore({
     middleware: () => [sagaMiddleware]
 });
 
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(watcherUserSaga);
 
 export default store
